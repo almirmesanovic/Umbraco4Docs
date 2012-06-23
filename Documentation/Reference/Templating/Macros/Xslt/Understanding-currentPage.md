@@ -8,47 +8,48 @@ XML is referenced in XSLT through the use of XPath, a query syntax that resemble
 
 The XML document contains all the content of the published documents. This data is stored in the XML document structured in the same manner as your tree is laid out in Umbraco. So, documents are nested to create the hierarchy that we can easily use. Each document in Umbraco consists of several common pieces of data, and they are:
 
-- id
-- isDoc
-- version
-- parentID
-- level
-- writerID
-- creatorID
-- nodeType
-- template
-- sortOrder
-- createDate
-- updateDate
-- nodeName
-- urlName
-- writerName
-- creatorName
-- path
+* `id` (integer)
+* `parentID` (integer)
+* `level` (integer)
+* `writerID` (integer)
+* `creatorID` (integer)
+* `nodeType` (integer)
+* `template` (integer)
+* `sortOrder` (integer)
+* `createDate` (datetime)
+* `updateDate` (datetime)
+* `nodeName` (text)
+* `urlName` (text)
+* `writerName` (integer)
+* `creatorName` (integer)
+* `path` (CSV of integers)
+* `isDoc` (empty)
 
-These are stored as attributes of the node, which is named after the Document Type alias, e.g. `<Textpage>`. The properties that are added to the document in Umbraco which are editable, are added as childnodes, so a single document would look like this:
+These are stored as attributes of the node, which is named after the Document Type alias, e.g. `<Textpage>`. The properties that are added to the document in Umbraco which are editable, are added as childnodes, so a single document could look like this:
 
 	<Textpage
+		id="1312"
+		parentID="1120"
+		level="3"
+		writerID="0"
+		creatorID="3"
+		nodeType="1118"
+		template="1047"
+		sortOrder="2"
+		createDate="2005-02-16T10:00:00"
+		updateDate="2006-02-16T12:00:00"
+		nodeName="About us"
+		urlName="about-us"
+		writerName="Administrator"
+		creatorName="Administrator"
+		path="-1,1051,1120,1312"
 		isDoc=""
-		id="numeric-version"
-		version="guid-value"
-		parentID="numeric-value"
-		level="numeric-value"
-		writerID="numeric-value"
-		creatorID="numeric-value"
-		nodeType="numeric-value"
-		template="numeric-value"
-		sortOrder="numeric-value"
-		createDate="datetime-value"
-		updateDate="datetime-value"
-		nodeName="text-value"	
-		urlName="text-value"
-		writerName="text-value"
-		creatorName="text-value"
-		path="csv-numeric-value"
 	> 
-		<header><![CDATA[]]></header>
+		<!-- Property nodes -->
+		<header><![CDATA[My ]]></header>
 		<umbracoNaviHide><![CDATA[1]]></umbracoNaviHide>
+
+		<!-- Child pages/documents -->
 		
 	</Textpage>
 	
